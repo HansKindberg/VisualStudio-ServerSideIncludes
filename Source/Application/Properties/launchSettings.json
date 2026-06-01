@@ -1,0 +1,21 @@
+{
+	"$schema": "https://json.schemastore.org/launchsettings.json",
+	"iisSettings": {
+		"anonymousAuthentication": true,
+		"iisExpress": {
+			"applicationUrl": "http://localhost:5000",
+			"sslPort": 0
+		},
+		"windowsAuthentication": false
+	},
+	"profiles": {
+		"IIS Express": {
+			"commandName": "IISExpress",
+			"environmentVariables": {
+				"ASPNETCORE_ENVIRONMENT": "Development"
+			},
+			"launchBrowser": true,
+			"launchUrl": "index.html"
+		}
+	}
+}

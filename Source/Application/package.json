@@ -1,0 +1,23 @@
+{
+	"dependencies": {
+		"bootstrap": "5.3.8",
+		"svgxuse": "1.2.6"
+	},
+	"devDependencies": {
+		"@types/bootstrap": "5.2.10",
+		"esbuild": "0.28.0",
+		"sass": "1.100.0",
+		"svg-sprite": "2.0.4"
+	},
+	"private": true,
+	"scripts": {
+		"Build-Debug": "npm run Build-Script-Debug && npm run Build-Sprite && npm run Build-StyleSheet-Debug",
+		"Build-Release": "npm run Build-Script-Release && npm run Build-Sprite && npm run Build-StyleSheet-Release",
+		"Build-Script-Debug": "esbuild scripts/site.ts --bundle --outfile=scripts/site.js",
+		"Build-Script-Release": "esbuild scripts/site.ts --bundle --minify --outfile=scripts/site.js",
+		"//": "https://madecurious.com/curiosities/generating-svg-sprites-the-easy-way/, https://github.com/svg-sprite/svg-sprite/blob/HEAD/docs/command-line.md",
+		"Build-Sprite": "svg-sprite -s --symbol-dest style/sprites --symbol-sprite sprite.svg style/sprite-images/**/*.svg",
+		"Build-StyleSheet-Debug": "sass style/site.scss:style/site.css --load-path=node_modules --no-source-map --silence-deprecation=color-functions --silence-deprecation=global-builtin --silence-deprecation=if-function --silence-deprecation=import",
+		"Build-StyleSheet-Release": "sass style/site.scss:style/site.css --load-path=node_modules --no-source-map --style=compressed --silence-deprecation=color-functions --silence-deprecation=global-builtin --silence-deprecation=if-function --silence-deprecation=import"
+	}
+}
